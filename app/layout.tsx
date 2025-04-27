@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Balancepro',
-  description: 'Developed by Aditya',
+  description: 'Transform your life through accessible, online fitness services that restore posture, manage weight, and alleviate pain.',
   generator: 'v0.dev',
 }
 
