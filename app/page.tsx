@@ -64,26 +64,6 @@ export default function Home() {
       <PopupForm />
 
       {/* Top Bar with Contact Info */}
-      <div className="bg-custom-dark text-white py-3">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
-          <div className="flex items-center space-x-6 text-sm mb-2 md:mb-0">
-            <div className="flex items-center animate-pop-in">
-              <Phone className="h-4 w-4 mr-2 text-primary" />
-              <span>+91 7355519301</span>
-            </div>
-            <div className="flex items-center animate-pop-in-delay-1">
-              <Mail className="h-4 w-4 mr-2 text-primary" />
-              <span>balanceprofitness@gmail.com</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center animate-pop-in-delay-2">
-              <Users className="h-4 w-4 mr-2 text-primary" />
-              <span>Nitesh</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Fixed Social Media Icons */}
       <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50 flex flex-col space-y-3 p-2 rounded-l-lg">
@@ -91,9 +71,9 @@ export default function Home() {
           href="https://wa.me/917355519301?text=Hello%2C%20I'm%20interested%20in%20learning%20more%20about%20Balance%20Pro%20services."
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue hover:text-green-500 transition-colors"
+          className="text-custom-blue/70 hover:text-green-500 transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
             <path
               fillRule="evenodd"
               d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
@@ -106,18 +86,18 @@ export default function Home() {
           href="https://www.instagram.com/balancepro_india?igsh=bWc0aWJ3OG5yMDZr&utm_source=qr"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue hover:text-primary transition-colors"
+          className="text-custom-blue/70 hover:text-[#E1306C] transition-colors"
         >
-          <Instagram className="h-8 w-8" />
+          <Instagram className="h-6 w-6" />
         </Link>
 
         <Link
           href="https://www.facebook.com/share/1RgVd5FU4K/?mibextid=wwXIfr"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue hover:text-primary transition-colors"
+          className="text-custom-blue/70 hover:text-primary transition-colors"
         >
-          <Facebook className="h-8 w-8" />
+          <Facebook className="h-6 w-6" />
         </Link>
       </div>
 
@@ -641,14 +621,11 @@ export default function Home() {
                     management, and pain relief, we're here to guide you toward a body that works as well as it lives."
                   </p>
                   <div className="flex space-x-3">
-                    <Link href="#" className="text-custom-text hover:text-primary transition-colors">
+                    <Link href="https://www.instagram.com/balancepro_india?igsh=bWc0aWJ3OG5yMDZr&utm_source=qr" className="text-custom-text hover:text-primary transition-colors">
                       <Instagram className="h-5 w-5" />
                     </Link>
-                    <Link href="#" className="text-custom-text hover:text-primary transition-colors">
+                    <Link href="https://www.facebook.com/share/1RgVd5FU4K/?mibextid=wwXIfr" className="text-custom-text hover:text-primary transition-colors">
                       <Facebook className="h-5 w-5" />
-                    </Link>
-                    <Link href="#" className="text-custom-text hover:text-primary transition-colors">
-                      <Twitter className="h-5 w-5" />
                     </Link>
                   </div>
                 </div>
@@ -1034,9 +1011,6 @@ export default function Home() {
             <div className="flex flex-col justify-between items-center">
               <p className="text-gray-400 text-sm mb-4 md:mb-0">
                 &copy; {new Date().getFullYear()} BalancePro. All rights reserved.
-              </p>
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                Created by <a href="mailto:adityaask220@gmail.com">@Aditya</a>, crafted to inspire.
               </p>
             </div>
           </div>
