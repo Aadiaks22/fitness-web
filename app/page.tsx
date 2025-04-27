@@ -1035,7 +1035,7 @@ export default function Home() {
               <p className="text-gray-400 text-sm mb-4 md:mb-0">
                 &copy; {new Date().getFullYear()} BalancePro. All rights reserved.
               </p>
-              <p>
+              <p className="text-gray-400 text-sm mb-4 md:mb-0">
                 Created by <a href="mailto:adityaask220@gmail.com">@Aditya</a>, crafted to inspire.
               </p>
             </div>
