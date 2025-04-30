@@ -129,7 +129,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="Your Contact NUmber"
+                      placeholder="Your Contact Number"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
