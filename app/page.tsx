@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -32,6 +32,10 @@ export default function Home() {
   // State for mobile menu
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // Refs for service cards to track visibility
+  const serviceRefs = useRef<(HTMLAnchorElement | null)[]>([])
+  const [visibleServices, setVisibleServices] = useState<boolean[]>([false, false, false, false])
+
   // Auto carousel for Why Choose Us section
   const {
     setApi: setWhyChooseUsApi,
@@ -57,6 +61,39 @@ export default function Home() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [isMobileMenuOpen])
+
+  // Set up intersection observer for service cards
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3, // When 30% of the element is visible
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const index = serviceRefs.current.findIndex((ref) => ref === entry.target)
+        if (index !== -1) {
+          setVisibleServices((prev) => {
+            const newState = [...prev]
+            newState[index] = entry.isIntersecting
+            return newState
+          })
+        }
+      })
+    }, options)
+
+    // Observe all service cards
+    serviceRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      serviceRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref)
+      })
+    }
+  }, [])
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -311,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-custom-blue/20">
+        <section id="services" className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-custom-deep-blue">Our Services</h2>
@@ -324,100 +361,135 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Link
+                ref={(el) => {
+                  serviceRefs.current[0] = el;
+                }}
                 href="/services/strength-training#top"
-                className="block h-80 relative rounded-lg overflow-hidden group"
+                className={`block h-80 relative rounded-lg overflow-hidden group ${visibleServices[0] ? "service-visible" : ""}`}
               >
-                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
-                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 md:group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] md:group-hover:blur-[1px]  transition-all duration-500">
                   <Image
-                    src="posturemg.png"
+                    src="/posturemg.png"
                     alt="Posture Restoration"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 service-visible:scale-110 active:scale-105 filter group-hover:brightness-110 md:group-hover:brightness-110 service-visible:brightness-110"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Posture Restoration</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow md:group-hover:text-glow">
+                    Posture Restoration
+                  </h3>
                   <div className="flex items-center text-white/90 text-sm font-medium">
-                    <span className="group-hover:text-white transition-colors">Learn More</span>
-                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <span className="group-hover:text-white md:group-hover:text-white service-visible:text-white transition-colors">
+                      Learn More
+                    </span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 md:group-hover:translate-x-1 service-visible:translate-x-1 transition-transform" />
                   </div>
                 </div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 md:group-hover:scale-x-100 service-visible:scale-x-100 transition-transform duration-500 origin-left z-40"></div>
               </Link>
 
               <Link
+                ref={(el) => {
+                  serviceRefs.current[1] = el;
+                }}
                 href="/services/cardio-fitness#top"
-                className="block h-80 relative rounded-lg overflow-hidden group"
+                className={`block h-80 relative rounded-lg overflow-hidden group ${visibleServices[1] ? "service-visible" : ""}`}
               >
-                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
-                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 md:group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] md:group-hover:blur-[1px] transition-all duration-500">
                   <Image
-                    src="weight.jpg"
+                    src="/weight.jpg"
                     alt="Weight Management"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 service-visible:scale-110 active:scale-105 filter group-hover:brightness-110 md:group-hover:brightness-110 service-visible:brightness-110"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Weight Management</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow md:group-hover:text-glow">
+                    Weight Management
+                  </h3>
                   <div className="flex items-center text-white/90 text-sm font-medium">
-                    <span className="group-hover:text-white transition-colors">Learn More</span>
-                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <span className="group-hover:text-white md:group-hover:text-white service-visible:text-white transition-colors">
+                      Learn More
+                    </span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 md:group-hover:translate-x-1 service-visible:translate-x-1 transition-transform" />
                   </div>
                 </div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
-              </Link>
-
-              <Link href="/services/weight-loss#top" className="block h-80 relative rounded-lg overflow-hidden group">
-                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
-                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
-                  <Image
-                    src="painmg.png"
-                    alt="Pain Management"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Pain Management</h3>
-                  <div className="flex items-center text-white/90 text-sm font-medium">
-                    <span className="group-hover:text-white transition-colors">Learn More</span>
-                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 md:group-hover:scale-x-100 service-visible:scale-x-100 transition-transform duration-500 origin-left z-40"></div>
               </Link>
 
               <Link
-                href="/services/nutrition-counseling#top"
-                className="block h-80 relative rounded-lg overflow-hidden group"
+                ref={(el) => {
+                  serviceRefs.current[2] = el;
+                }}
+                href="/services/weight-loss#top"
+                className={`block h-80 relative rounded-lg overflow-hidden group ${visibleServices[2] ? "service-visible" : ""}`}
               >
-                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
-                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 md:group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] md:group-hover:blur-[1px]  transition-all duration-500">
                   <Image
-                    src="nutrition.jpg"
-                    alt="Nutrition Counseling"
+                    src="/painmg.png"
+                    alt="Pain Management"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 service-visible:scale-110 active:scale-105 filter group-hover:brightness-110 md:group-hover:brightness-110 service-visible:brightness-110"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Nutrition Counseling</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow md:group-hover:text-glow ">
+                    Pain Management
+                  </h3>
                   <div className="flex items-center text-white/90 text-sm font-medium">
-                    <span className="group-hover:text-white transition-colors">Learn More</span>
-                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <span className="group-hover:text-white md:group-hover:text-white service-visible:text-white transition-colors">
+                      Learn More
+                    </span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 md:group-hover:translate-x-1 service-visible:translate-x-1 transition-transform" />
                   </div>
                 </div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 md:group-hover:scale-x-100 service-visible:scale-x-100 transition-transform duration-500 origin-left z-40"></div>
+              </Link>
+
+              <Link
+                ref={(el) => {
+                  serviceRefs.current[3] = el;
+                }}
+                href="/services/nutrition-counseling#top"
+                className={`block h-80 relative rounded-lg overflow-hidden group ${visibleServices[3] ? "service-visible" : ""}`}
+              >
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 md:group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] md:group-hover:blur-[1px]  transition-all duration-500">
+                  <Image
+                    src="/nutrition.jpg"
+                    alt="Nutrition Counseling"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 service-visible:scale-110 active:scale-105 filter group-hover:brightness-110 md:group-hover:brightness-110 service-visible:brightness-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow md:group-hover:text-glow ">
+                    Nutrition Counseling
+                  </h3>
+                  <div className="flex items-center text-white/90 text-sm font-medium">
+                    <span className="group-hover:text-white md:group-hover:text-white service-visible:text-white transition-colors">
+                      Learn More
+                    </span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 md:group-hover:translate-x-1 service-visible:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 service-visible:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 md:group-hover:scale-x-100 service-visible:scale-x-100 transition-transform duration-500 origin-left z-40"></div>
               </Link>
             </div>
           </div>
