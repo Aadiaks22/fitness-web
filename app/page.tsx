@@ -348,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-20 bg-white">
+        <section id="services" className="py-20 bg-custom-blue/20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-custom-deep-blue">Our Services</h2>
