@@ -327,61 +327,97 @@ export default function Home() {
                 href="/services/strength-training#top"
                 className="block h-80 relative rounded-lg overflow-hidden group"
               >
-                <Image
-                  src="posturemg.png"
-                  alt="Posture Restoration"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-2">Posture Restoration</h3>
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                  <Image
+                    src="posturemg.png"
+                    alt="Posture Restoration"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Posture Restoration</h3>
+                  <div className="flex items-center text-white/90 text-sm font-medium">
+                    <span className="group-hover:text-white transition-colors">Learn More</span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
               </Link>
 
               <Link
                 href="/services/cardio-fitness#top"
                 className="block h-80 relative rounded-lg overflow-hidden group"
               >
-                <Image
-                  src="weight.jpg"
-                  alt="Weight Management"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-2">Weight Management</h3>
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                  <Image
+                    src="weight.jpg"
+                    alt="Weight Management"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Weight Management</h3>
+                  <div className="flex items-center text-white/90 text-sm font-medium">
+                    <span className="group-hover:text-white transition-colors">Learn More</span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
               </Link>
 
               <Link href="/services/weight-loss#top" className="block h-80 relative rounded-lg overflow-hidden group">
-                <Image
-                  src="painmg.png"
-                  alt="Pain Management"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-2">Pain Management</h3>
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                  <Image
+                    src="painmg.png"
+                    alt="Pain Management"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Pain Management</h3>
+                  <div className="flex items-center text-white/90 text-sm font-medium">
+                    <span className="group-hover:text-white transition-colors">Learn More</span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
               </Link>
 
               <Link
                 href="/services/nutrition-counseling#top"
                 className="block h-80 relative rounded-lg overflow-hidden group"
               >
-                <Image
-                  src="/nutrition.jpg"
-                  alt="Nutrition Counseling"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300">
-                  <h3 className="text-2xl font-bold text-white mb-2">Nutrition Counseling</h3>
+                <div className="absolute inset-0 z-10 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-primary/20 via-transparent to-transparent transition-opacity duration-500"></div>
+                <div className="absolute inset-0 z-0 group-hover:blur-[1px] transition-all duration-500">
+                  <Image
+                    src="nutrition.jpg"
+                    alt="Nutrition Counseling"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 md:group-hover:scale-110 active:scale-105 filter group-hover:brightness-110"
+                  />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-30"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 z-40">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-glow">Nutrition Counseling</h3>
+                  <div className="flex items-center text-white/90 text-sm font-medium">
+                    <span className="group-hover:text-white transition-colors">Learn More</span>
+                    <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] z-30 transition-opacity duration-500 pointer-events-none"></div>
               </Link>
             </div>
           </div>

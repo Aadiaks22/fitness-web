@@ -103,7 +103,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                     <Input
                       id="name"
                       name="name"
-                      placeholder="John Doe"
+                      placeholder="Your Full Name"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
@@ -116,7 +116,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="Your Email"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
@@ -129,7 +129,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="+91 7355519301"
+                      placeholder="Your Contact NUmber"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
@@ -142,7 +142,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                       id="age"
                       name="age"
                       type="number"
-                      placeholder="30"
+                      placeholder="Your Age"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
@@ -156,7 +156,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                       name="weight"
                       type="number"
                       step="0.1"
-                      placeholder="70"
+                      placeholder="Your Weight"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
@@ -169,7 +169,7 @@ export function BookDemoDialog({ children }: { children?: React.ReactNode }) {
                       id="height"
                       name="height"
                       type="number"
-                      placeholder="175"
+                      placeholder="Your Height"
                       required
                       className="border-custom-pale-blue focus:border-primary focus:ring-primary"
                     />
