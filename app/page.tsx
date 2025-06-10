@@ -676,6 +676,66 @@ export default function Home() {
                       </div>
                     </div>
                   </CarouselItem>
+                  <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                    <div className="bg-white p-8 rounded-lg shadow-lg h-full hover-scale card-shadow">
+                      <div className="flex items-center mb-6">
+                        <div className="mr-4">
+                          <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+                            <Image
+                              src="/Dr Prashant V.jpg"
+                              alt="Testimonial Avatar"
+                              width={160}
+                              height={160}
+                              className="rounded-full"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-custom-deep-blue">Dr Parshant Verma (Gastroenterologist Lucknow)</h4>
+                          <p className="text-primary text-sm">Member since 2023</p>
+                        </div>
+                      </div>
+                      <p className="text-custom-text mb-4 italic">
+                      “BalancePro changed my life — inside and out!
+                     I came to BalancePro wanting to lose weight, but I gained so much more — confidence, energy, and a completely new lifestyle. The workouts were smart, the advice was practical, and the support was constant. Highly recommended!”
+                      </p>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-current" />
+                        ))}
+                      </div>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                    <div className="bg-white p-8 rounded-lg shadow-lg h-full hover-scale card-shadow">
+                      <div className="flex items-center mb-6">
+                        <div className="mr-4">
+                          <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+                            <Image
+                              src="/Dr Himani.jpg"
+                              alt="Testimonial Avatar"
+                              width={160}
+                              height={160}
+                              className="rounded-full"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-custom-deep-blue">Dr Himnai Negi (Gynaecologist Lucknow)</h4>
+                          <p className="text-primary text-sm">Member since 2022</p>
+                        </div>
+                      </div>
+                      <p className="text-custom-text mb-4 italic">
+                      “Online training that actually works!
+                      I was skeptical about online fitness coaching, but BalancePro proved me wrong. The workouts were easy to follow, the guidance was on point, and I never felt alone in the journey. Totally worth it.”
+                      </p>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-current" />
+                        ))}
+                      </div>
+                    </div>
+                  </CarouselItem>
                 </CarouselContent>
                 <div className="flex justify-center mt-8">
                   <CarouselPrevious className="relative static translate-y-0 left-0 mr-2 bg-primary text-white hover:bg-custom-deep-blue border-none" />
