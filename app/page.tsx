@@ -98,7 +98,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Popup Form */}
-      <PopupForm />
+      {/* <PopupForm /> */}
 
       {/* Top Bar with Contact Info */}
 
