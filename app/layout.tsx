@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   keywords:
     "fitness, posture restoration, weight management, pain management, nutrition counseling, online fitness, personal training",
   authors: [{ name: "BalancePro" }],
+  verification: {
+    google: "Y8kF_Zz7PySGhI6CNJ5Ra29pvjTH0cB61vXbAYcfIPE",
+  },
+  alternates: {
+    canonical: "https://www.balancepro.in",
+  },
   openGraph: {
     title: "BalancePro - Transform Your Life Through Fitness",
     description:

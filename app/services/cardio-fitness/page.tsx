@@ -9,6 +9,9 @@ export const metadata = {
   title: "Weight Management | BalancePro",
   description:
     "Achieve and maintain a healthy weight with our tailored weight management training programs at BalancePro.",
+  alternates: {
+    canonical: "https://www.balancepro.in/services/cardio-fitness",
+  },
 }
 
 export default function StrengthTrainingPage() {

@@ -9,6 +9,9 @@ export const metadata = {
   title: "Posture Restoration | BalancePro",
   description:
     "Improve your posture and alleviate discomfort with our specialized posture restoration training programs at BalancePro.",
+  alternates: {
+    canonical: "https://www.balancepro.in/services/strength-training",
+  },
 }
 
 export default function StrengthTrainingPage() {

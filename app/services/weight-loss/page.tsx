@@ -9,6 +9,9 @@ export const metadata = {
   title: "Pain Management | BalancePro",
   description:
     "Relieve pain and restore your quality of life with our specialized pain management training programs at BalancePro.",
+  alternates: {
+    canonical: "https://www.balancepro.in/services/weight-loss",
+  },
 }
 
 export default function StrengthTrainingPage() {

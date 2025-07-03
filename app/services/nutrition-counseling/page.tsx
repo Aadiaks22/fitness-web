@@ -9,6 +9,9 @@ export const metadata = {
   title: "Nutrition Counseling | BalancePro",
   description:
     "Improve your posture and alleviate discomfort with our specialized posture restoration training programs at BalancePro.",
+  alternates: {
+    canonical: "https://www.balancepro.in/services/nutrition-counseling",
+  },
 }
 
 export default function StrengthTrainingPage() {
